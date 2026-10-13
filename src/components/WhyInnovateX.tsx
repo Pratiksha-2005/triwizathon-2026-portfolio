@@ -1,4 +1,5 @@
 import React from 'react';
+import ElectricBorder from './ElectricBorder';
 
 export const WhyInnovateX: React.FC = () => {
   const principles = [
@@ -59,18 +60,34 @@ export const WhyInnovateX: React.FC = () => {
         {/* 4 Principles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {principles.map((p, idx) => (
-            <div
+            <ElectricBorder
               key={idx}
-              className="p-6 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#84CC16]/60 shadow-lg transition-all duration-300"
+              color="#84CC16"
+              glowColor="#22D3EE"
+              intensity={0.2}
+              speed={0.4}
+              glow={0.15}
+              thickness={1}
+              strands={2}
+              chaos={0.3}
+              spread={0.4}
+              flicker={0.15}
+              borderRadius={16}
+              interactive={true}
+              className="h-full"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#0A1E14] border border-[#0F3020] flex items-center justify-center mb-4">
-                {p.icon}
+              <div
+                className="p-6 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#84CC16]/60 shadow-lg transition-all duration-300 h-full"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#0A1E14] border border-[#0F3020] flex items-center justify-center mb-4">
+                  {p.icon}
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">{p.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {p.description}
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">{p.title}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {p.description}
-              </p>
-            </div>
+            </ElectricBorder>
           ))}
         </div>
 

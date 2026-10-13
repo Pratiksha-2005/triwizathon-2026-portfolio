@@ -82,8 +82,8 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member, expanded, onToggle }
             <div
               className="rounded-2xl items-center justify-center text-xl font-bold font-mono tracking-wider text-white shadow-lg border"
               style={{
-                width: '70px',
-                height: '70px',
+                width: '150px',
+                height: '150px',
                 backgroundColor: '#0A1E14',
                 borderColor: `${member.accentColor}60`,
                 boxShadow: `0 8px 18px -4px ${member.accentColor}25`,

@@ -1,4 +1,5 @@
 import React from 'react';
+import ElectricBorder from './ElectricBorder';
 
 export const WorkflowSection: React.FC = () => {
   const steps = [
@@ -55,46 +56,62 @@ export const WorkflowSection: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
             {steps.map((step, idx) => (
-              <div
+              <ElectricBorder
                 key={idx}
-                className="p-6 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#356DFF]/60 shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                color="#84CC16"
+                glowColor="#22D3EE"
+                intensity={1}
+                speed={0.6}
+                glow={0.3}
+                thickness={1.5}
+                strands={2}
+                chaos={0.3}
+                spread={0.4}
+                flicker={0.25}
+                borderRadius={16}
+                interactive={true}
+                className="h-full"
               >
-                <div>
-                  {/* Step Number Circle */}
-                  <div className="flex items-center justify-between mb-5">
-                    <div
-                      className="w-12 h-12 rounded-2xl flex items-center justify-center font-mono font-bold text-lg text-white shadow-md border"
-                      style={{
-                        backgroundColor: '#12243A',
-                        borderColor: `${step.accent}50`,
-                      }}
-                    >
-                      {step.num}
+                <div
+                  className="p-6 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#356DFF]/60 shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 h-full"
+                >
+                  <div>
+                    {/* Step Number Circle */}
+                    <div className="flex items-center justify-between mb-5">
+                      <div
+                        className="w-12 h-12 rounded-2xl flex items-center justify-center font-mono font-bold text-lg text-white shadow-md border"
+                        style={{
+                          backgroundColor: '#12243A',
+                          borderColor: `${step.accent}50`,
+                        }}
+                      >
+                        {step.num}
+                      </div>
+                      <span
+                        className="text-[10px] font-mono uppercase px-2 py-0.5 rounded border"
+                        style={{
+                          backgroundColor: '#12243A',
+                          color: step.accent,
+                          borderColor: `${step.accent}40`,
+                        }}
+                      >
+                        Step {idx + 1}
+                      </span>
                     </div>
-                    <span
-                      className="text-[10px] font-mono uppercase px-2 py-0.5 rounded border"
-                      style={{
-                        backgroundColor: '#12243A',
-                        color: step.accent,
-                        borderColor: `${step.accent}40`,
-                      }}
-                    >
-                      Step {idx + 1}
-                    </span>
+
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#22D3EE] transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3 font-medium">
+                      {step.summary}
+                    </p>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#22D3EE] transition-colors">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3 font-medium">
-                    {step.summary}
-                  </p>
+                  <div className="pt-3 border-t border-[#12243A] text-xs text-slate-400 leading-normal">
+                    {step.detail}
+                  </div>
                 </div>
-
-                <div className="pt-3 border-t border-[#12243A] text-xs text-slate-400 leading-normal">
-                  {step.detail}
-                </div>
-              </div>
+              </ElectricBorder>
             ))}
           </div>
         </div>

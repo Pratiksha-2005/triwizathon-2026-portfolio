@@ -1,4 +1,5 @@
 import React from 'react';
+import ElectricBorder from './ElectricBorder';
 
 export const About: React.FC = () => {
   const capabilities = [
@@ -80,51 +81,67 @@ export const About: React.FC = () => {
         {/* 4 Capabilities Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {capabilities.map((item, index) => (
-            <div
+            <ElectricBorder
               key={index}
-              className="cursor-target p-6 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#356DFF]/60 shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+              color="#84CC16"
+              glowColor="#22D3EE"
+              intensity={0.2}
+              speed={0.4}
+              glow={0.15}
+              thickness={1}
+              strands={2}
+              chaos={0.3}
+              spread={0.4}
+              flicker={0.15}
+              borderRadius={16}
+              interactive={true}
+              className="h-full"
             >
-              <div>
-                {/* Header Icon & Tag */}
-                <div className="flex items-center justify-between mb-4">
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors shadow-inner"
-                    style={{
-                      backgroundColor: `${item.accent}15`,
-                      color: item.accent,
-                      border: `1px solid ${item.accent}40`,
-                    }}
-                  >
-                    {item.icon}
-                  </div>
-                  <span className="text-[11px] font-mono text-slate-400 bg-[#12243A] px-2 py-0.5 rounded border border-[#1E3A5F]">
-                    {item.tag}
-                  </span>
-                </div>
-
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#22D3EE] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-slate-300 leading-relaxed mb-4">
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Focus Skills */}
-              <div className="pt-4 border-t border-[#12243A]">
-                <div className="text-[11px] font-mono text-slate-400 mb-2">Key Areas:</div>
-                <div className="flex flex-wrap gap-1.5">
-                  {item.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="text-[10px] px-2 py-0.5 rounded bg-[#12243A] text-slate-300 border border-slate-800"
+              <div
+                className="cursor-target p-6 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#356DFF]/60 shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 h-full"
+              >
+                <div>
+                  {/* Header Icon & Tag */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors shadow-inner"
+                      style={{
+                        backgroundColor: `${item.accent}15`,
+                        color: item.accent,
+                        border: `1px solid ${item.accent}40`,
+                      }}
                     >
-                      {skill}
+                      {item.icon}
+                    </div>
+                    <span className="text-[11px] font-mono text-slate-400 bg-[#12243A] px-2 py-0.5 rounded border border-[#1E3A5F]">
+                      {item.tag}
                     </span>
-                  ))}
+                  </div>
+
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#22D3EE] transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-slate-300 leading-relaxed mb-4">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Focus Skills */}
+                <div className="pt-4 border-t border-[#12243A]">
+                  <div className="text-[11px] font-mono text-slate-400 mb-2">Key Areas:</div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.skills.map((skill, sIdx) => (
+                      <span
+                        key={sIdx}
+                        className="text-[10px] px-2 py-0.5 rounded bg-[#12243A] text-slate-300 border border-slate-800"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </ElectricBorder>
           ))}
         </div>
       </div>

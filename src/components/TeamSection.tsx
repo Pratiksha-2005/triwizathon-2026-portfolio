@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TEAM_MEMBERS } from '../data/team';
 import { TeamCard } from './TeamCard';
+import ElectricBorder from './ElectricBorder';
 
 export const TeamSection: React.FC = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -32,12 +33,28 @@ export const TeamSection: React.FC = () => {
         {/* 4 Members Grid: 4-cols on desktop, 2-cols on tablet, 1-col on mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {TEAM_MEMBERS.map((member) => (
-            <TeamCard
+            <ElectricBorder
               key={member.id}
-              member={member}
-              expanded={expandedId === member.id}
-              onToggle={() => handleToggle(member.id)}
-            />
+              color="#84CC16"
+              glowColor="#22D3EE"
+              intensity={1}
+              speed={0.6}
+              glow={0.3}
+              thickness={1.5}
+              strands={2}
+              chaos={0.3}
+              spread={0.4}
+              flicker={0.25}
+              borderRadius={16}
+              interactive={true}
+              className="h-full"
+            >
+              <TeamCard
+                member={member}
+                expanded={expandedId === member.id}
+                onToggle={() => handleToggle(member.id)}
+              />
+            </ElectricBorder>
           ))}
         </div>
       </div>

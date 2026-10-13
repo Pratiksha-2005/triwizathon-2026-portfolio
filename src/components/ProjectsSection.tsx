@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '../data/projects';
 import { ProjectCard } from './ProjectCard';
+import ElectricBorder from './ElectricBorder';
 
 export const ProjectsSection: React.FC = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -28,12 +29,28 @@ export const ProjectsSection: React.FC = () => {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {PROJECTS.map((project) => (
-            <ProjectCard
+            <ElectricBorder
               key={project.id}
-              project={project}
-              expanded={expandedId === project.id}
-              onToggle={() => handleToggle(project.id)}
-            />
+              color="#84CC16"
+              glowColor="#22D3EE"
+              intensity={1}
+              speed={0.6}
+              glow={0.3}
+              thickness={1.5}
+              strands={2}
+              chaos={0.3}
+              spread={0.4}
+              flicker={0.25}
+              borderRadius={16}
+              interactive={true}
+              className="h-full"
+            >
+              <ProjectCard
+                project={project}
+                expanded={expandedId === project.id}
+                onToggle={() => handleToggle(project.id)}
+              />
+            </ElectricBorder>
           ))}
         </div>
       </div>
