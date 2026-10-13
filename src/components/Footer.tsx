@@ -17,11 +17,11 @@ export const Footer: React.FC = () => {
         {/* Brand & Wordmark */}
         <div className="flex flex-col items-center md:items-start gap-2">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-[#12243A] border border-[#356DFF]/50 flex items-center justify-center text-[#52D6FF] font-mono font-bold text-xs">
+            <div className="w-7 h-7 rounded-lg bg-[#0A1E14] border border-[#84CC16]/50 flex items-center justify-center text-[#22D3EE] font-mono font-bold text-xs">
               IX
             </div>
             <span className="text-lg font-bold text-white font-mono tracking-tight">
-              Innovate<span className="text-[#52D6FF]">X</span>
+              Innovate<span className="text-[#22D3EE]">X</span>
             </span>
           </div>
           <p className="text-slate-400 text-center md:text-left max-w-sm">

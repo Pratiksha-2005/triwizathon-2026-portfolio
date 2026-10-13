@@ -8,7 +8,7 @@ export const About: React.FC = () => {
       tag: 'Interface & Interaction',
       description:
         'Crafting responsive, intuitive user interfaces that communicate product logic clearly and make complex workflows accessible.',
-      accent: '#356DFF',
+      accent: '#84CC16',
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -22,7 +22,7 @@ export const About: React.FC = () => {
       tag: 'Server Logic & Architecture',
       description:
         'Building structured server-side logic, data models, and clean API boundaries to ensure stability, performance, and seamless integration.',
-      accent: '#52D6FF',
+      accent: '#22D3EE',
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
@@ -36,7 +36,7 @@ export const About: React.FC = () => {
       tag: 'Intelligence & Validation',
       description:
         'Investigating relevant machine learning models, autonomous agents, and algorithmic approaches to validate intelligent functionality.',
-      accent: '#8B5CF6',
+      accent: '#F97316',
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -50,7 +50,7 @@ export const About: React.FC = () => {
       tag: 'Strategy & Articulation',
       description:
         'Analyzing problem contexts, defining the real-world value proposition, and preparing structured presentations for judge evaluations.',
-      accent: '#10B981',
+      accent: '#A3E635',
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -70,7 +70,7 @@ export const About: React.FC = () => {
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-5">
             Built on Curiosity.{' '}
-            <span className="text-[#356DFF]">Driven by Collaboration.</span>
+            <span className="text-[#22D3EE]">Driven by Collaboration.</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
             InnovateX brings together four complementary areas of responsibility: frontend development and user experience, backend engineering and databases, AI/ML research, and business strategy. We approach innovation by understanding the problem, researching possible solutions, developing and integrating technology, testing our work, and communicating its value.
@@ -102,7 +102,7 @@ export const About: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#52D6FF] transition-colors">
+                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#22D3EE] transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-sm text-slate-300 leading-relaxed mb-4">

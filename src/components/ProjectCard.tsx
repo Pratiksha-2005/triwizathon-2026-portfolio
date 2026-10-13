@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { Project } from '../data/projects';
 
 interface ProjectCardProps {
   project: Project;
+  expanded: boolean;
+  onToggle: () => void;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const [showDetails, setShowDetails] = useState(false);
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, expanded, onToggle }) => {
 
   return (
     <div className="h-full flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#356DFF]/60 shadow-xl transition-all duration-300 group hover:-translate-y-1 relative">
@@ -30,7 +31,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
 
         {/* Project Title */}
-        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#52D6FF] transition-colors">
+        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#22D3EE] transition-colors">
           {project.name}
         </h3>
 
@@ -52,14 +53,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
 
         {/* Collapsible Architecture & Implementation Scope */}
-        {showDetails && (
-          <div className="mt-4 pt-4 border-t border-[#12243A] space-y-2 text-xs text-slate-300 animate-in fade-in">
+        {expanded && (
+          <div className="mt-4 pt-4 border-t border-[#12243A] space-y-2 text-xs text-slate-300 animate-expand-in">
             <div className="font-mono text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-2">
               Key Focus Areas:
             </div>
             {project.features.map((feat, fIdx) => (
               <div key={fIdx} className="flex items-start gap-2">
-                <span className="text-[#52D6FF] mt-0.5 font-bold">›</span>
+                <span className="text-[#22D3EE] mt-0.5 font-bold">›</span>
                 <span>{feat}</span>
               </div>
             ))}
@@ -81,13 +82,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
 
         <button
-          onClick={() => setShowDetails(!showDetails)}
-          className="text-xs font-semibold text-[#52D6FF] hover:text-white flex items-center gap-1 transition-colors focus:outline-none"
-          aria-expanded={showDetails}
+          onClick={onToggle}
+          className="text-xs font-semibold text-[#22D3EE] hover:text-white flex items-center gap-1 transition-colors focus:outline-none"
+          aria-expanded={expanded}
         >
-          <span>{showDetails ? 'Hide details' : 'Explore scope'}</span>
+          <span>{expanded ? 'Hide details' : 'Explore scope'}</span>
           <svg
-            className={`w-3.5 h-3.5 transform transition-transform ${showDetails ? 'rotate-180' : ''}`}
+            className={`w-3.5 h-3.5 transform transition-transform ${expanded ? 'rotate-180' : ''}`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

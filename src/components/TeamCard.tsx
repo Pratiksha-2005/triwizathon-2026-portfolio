@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { TeamMember } from '../data/team';
 
 interface TeamCardProps {
   member: TeamMember;
+  expanded: boolean;
+  onToggle: () => void;
 }
 
 /* ── Social icon SVGs ── */
@@ -36,15 +38,14 @@ const PhoneIcon = () => (
 
 const ChevronIcon = ({ open }: { open: boolean }) => (
   <svg
-    className={`w-3.5 h-3.5 transform transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+    className={`w-3.5 h-3.5 transform transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
     fill="none" viewBox="0 0 24 24" stroke="currentColor"
   >
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
   </svg>
 );
 
-export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
-  const [expanded, setExpanded] = useState(false);
+export const TeamCard: React.FC<TeamCardProps> = ({ member, expanded, onToggle }) => {
 
   return (
     <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#356DFF]/60 shadow-xl transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden">
@@ -55,51 +56,54 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
       />
 
       <div>
-        {/* Top Header: Photo/Avatar & Role Tag */}
-        <div className="flex items-start justify-between gap-4 mb-5">
-          {/* Avatar — photo with initials fallback */}
-          <div className="relative flex-shrink-0">
+        {/* Centered Photo/Avatar + Badge */}
+        <div className="flex flex-col items-center mb-6 pt-2">
+          {/* Avatar — large centered photo with initials fallback */}
+          <div className="relative mb-4">
             {member.photo ? (
               <img
                 src={member.photo}
                 alt={member.name}
                 onError={(e) => {
-                  // swap to initials container on broken image
                   const target = e.currentTarget;
                   target.style.display = 'none';
                   const fallback = target.nextElementSibling as HTMLElement | null;
                   if (fallback) fallback.style.display = 'flex';
                 }}
-                className="w-14 h-14 rounded-2xl object-cover shadow-lg border"
+                className="rounded-2xl object-cover shadow-lg border"
                 style={{
-                  borderColor: `${member.accentColor}60`,
-                  boxShadow: `0 8px 16px -4px ${member.accentColor}25`,
+                  width: '150px',
+                  height: '150px', borderColor: `${member.accentColor}60`,
+                  boxShadow: `0 8px 18px -4px ${member.accentColor}25`,
                 }}
               />
             ) : null}
-            {/* Initials fallback — visible when no photo or image errors */}
+            {/* Initials fallback */}
             <div
-              className="w-14 h-14 rounded-2xl items-center justify-center text-xl font-bold font-mono tracking-wider text-white shadow-lg border"
+              className="rounded-2xl items-center justify-center text-xl font-bold font-mono tracking-wider text-white shadow-lg border"
               style={{
-                backgroundColor: '#12243A',
+                width: '70px',
+                height: '70px',
+                backgroundColor: '#0A1E14',
                 borderColor: `${member.accentColor}60`,
-                boxShadow: `0 8px 16px -4px ${member.accentColor}25`,
+                boxShadow: `0 8px 18px -4px ${member.accentColor}25`,
                 display: member.photo ? 'none' : 'flex',
               }}
             >
               {member.initials}
             </div>
             <div
-              className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-[#0D1B2A]"
+              className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-[#0D1B2A]"
               style={{ backgroundColor: member.accentColor }}
               title="Active Team Role"
             />
           </div>
 
+          {/* Role Badge */}
           <span
             className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-full border shadow-sm"
             style={{
-              backgroundColor: '#12243A',
+              backgroundColor: '#0A1E14',
               color: member.accentColor,
               borderColor: `${member.accentColor}40`,
             }}
@@ -108,19 +112,25 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
           </span>
         </div>
 
-        {/* Member Name & Role */}
-        <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[#52D6FF] transition-colors">
+        {/* Member Name — with extra spacing */}
+        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#22D3EE] transition-colors text-center">
           {member.name}
         </h3>
-        <p className="text-xs font-semibold text-[#52D6FF] mb-2 tracking-tight">
+
+        {/* Role — with decorative divider below */}
+        <p className="text-xs font-semibold text-[#22D3EE] mb-1 tracking-tight text-center">
           {member.role}
         </p>
+        <div
+          className="w-10 h-0.5 rounded-full mx-auto mb-5 opacity-40"
+          style={{ backgroundColor: member.accentColor }}
+        />
 
         {/* Education & CGPA */}
         {member.education && (
-          <p className="text-[11px] text-slate-400 font-mono mb-3.5 leading-snug">
+          <p className="text-[11px] text-slate-400 font-mono mb-3.5 leading-snug text-center">
             🎓 {member.education}
-            {member.cgpa && <span className="ml-1.5 text-[#10B981] font-semibold">· CGPA {member.cgpa}</span>}
+            {member.cgpa && <span className="ml-1.5 text-[#22D3EE] font-semibold">· CGPA {member.cgpa}</span>}
           </p>
         )}
 
@@ -135,7 +145,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
             <a
               href={`mailto:${member.email}`}
               title={member.email}
-              className="flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-lg border border-[#1A2E4C] text-slate-300 hover:text-white hover:border-[#356DFF]/60 bg-[#12243A] transition-colors"
+              className="flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-lg border border-[#0D2A1A] text-slate-300 hover:text-white hover:border-[#84CC16]/60 bg-[#0A1E14] transition-colors"
             >
               <EmailIcon /> Email
             </a>
@@ -146,7 +156,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
               target="_blank"
               rel="noopener noreferrer"
               title="LinkedIn Profile"
-              className="flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-lg border border-[#1A2E4C] text-slate-300 hover:text-[#0A66C2] hover:border-[#0A66C2]/60 bg-[#12243A] transition-colors"
+              className="flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-lg border border-[#0D2A1A] text-slate-300 hover:text-[#0A66C2] hover:border-[#0A66C2]/60 bg-[#0A1E14] transition-colors"
             >
               <LinkedInIcon /> LinkedIn
             </a>
@@ -157,7 +167,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
               target="_blank"
               rel="noopener noreferrer"
               title="GitHub Profile"
-              className="flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-lg border border-[#1A2E4C] text-slate-300 hover:text-white hover:border-slate-400/60 bg-[#12243A] transition-colors"
+              className="flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-lg border border-[#0D2A1A] text-slate-300 hover:text-white hover:border-slate-400/60 bg-[#0A1E14] transition-colors"
             >
               <GitHubIcon /> GitHub
             </a>
@@ -166,7 +176,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
             <a
               href={`tel:+91${member.phone}`}
               title={`+91 ${member.phone}`}
-              className="flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-lg border border-[#1A2E4C] text-slate-300 hover:text-[#10B981] hover:border-[#10B981]/60 bg-[#12243A] transition-colors"
+              className="flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-lg border border-[#0D2A1A] text-slate-300 hover:text-[#22D3EE] hover:border-[#22D3EE]/60 bg-[#0A1E14] transition-colors"
             >
               <PhoneIcon /> {member.phone}
             </a>
@@ -175,7 +185,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
       </div>
 
       {/* Responsibilities Checklist */}
-      <div className="pt-4 border-t border-[#12243A]">
+      <div className="pt-4 border-t border-[#0A1E14]">
         <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2.5 font-semibold">
           Team Responsibilities
         </div>
@@ -200,8 +210,8 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
         {(member.skills?.length || member.keyProjects?.length) && (
           <>
             <button
-              onClick={() => setExpanded(!expanded)}
-              className="w-full flex items-center justify-between text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-400 hover:text-slate-200 transition-colors py-1 focus:outline-none"
+              onClick={onToggle}
+              className="w-full flex items-center justify-between text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-400 hover:text-slate-200 transition-colors py-1.5 focus:outline-none"
               aria-expanded={expanded}
             >
               <span>{expanded ? 'Show less' : 'Skills & Projects'}</span>
@@ -209,7 +219,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
             </button>
 
             {expanded && (
-              <div className="mt-3 space-y-4 animate-in fade-in slide-in-from-top-1 duration-200">
+              <div className="mt-3 space-y-4 animate-expand-in">
                 {/* Skills */}
                 {member.skills?.length && (
                   <div>
@@ -220,7 +230,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member }) => {
                       {member.skills.map((skill, i) => (
                         <span
                           key={i}
-                          className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#12243A] border border-slate-800 text-slate-300"
+                          className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0A1E14] border border-[#0D2A1A] text-slate-300"
                         >
                           {skill}
                         </span>

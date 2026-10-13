@@ -1,6 +1,7 @@
 import React from 'react';
 import { ACHIEVEMENTS, ACHIEVEMENTS_SUMMARY } from '../data/achievements';
 import { AchievementCard } from './AchievementCard';
+import ElectricBorder from './ElectricBorder';
 
 export const AchievementsSection: React.FC = () => {
   return (
@@ -19,8 +20,8 @@ export const AchievementsSection: React.FC = () => {
           </p>
 
           {/* Verified Summary Callout */}
-          <div className="p-4 rounded-xl bg-[#0D1B2A] border border-[#356DFF]/40 flex items-start gap-3 shadow-md">
-            <div className="w-8 h-8 rounded-lg bg-[#356DFF]/20 text-[#52D6FF] flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div className="p-4 rounded-xl bg-[#0D1B2A] border border-[#84CC16]/40 flex items-start gap-3 shadow-md">
+            <div className="w-8 h-8 rounded-lg bg-[#84CC16]/20 text-[#22D3EE] flex items-center justify-center flex-shrink-0 mt-0.5">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -34,7 +35,24 @@ export const AchievementsSection: React.FC = () => {
         {/* 4 Achievements Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {ACHIEVEMENTS.map((achievement) => (
-            <AchievementCard key={achievement.id} achievement={achievement} />
+            <ElectricBorder
+              key={achievement.id}
+              color="#84CC16"
+              glowColor="#22D3EE"
+              intensity={0.25}
+              speed={0.5}
+              glow={0.2}
+              thickness={1}
+              strands={2}
+              chaos={0.3}
+              spread={0.4}
+              flicker={0.2}
+              borderRadius={16}
+              interactive={true}
+              className="h-full"
+            >
+              <AchievementCard achievement={achievement} />
+            </ElectricBorder>
           ))}
         </div>
       </div>

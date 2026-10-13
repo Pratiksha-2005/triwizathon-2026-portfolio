@@ -7,28 +7,28 @@ export const WorkflowSection: React.FC = () => {
       title: 'Discover',
       summary: 'Understand the problem, target users, constraints, and intended impact.',
       detail: 'Analyze real-world operational challenges, determine user pain points, and define a tightly bounded scope suitable for rigorous hackathon execution.',
-      accent: '#356DFF',
+      accent: '#84CC16',
     },
     {
       num: '02',
       title: 'Research',
       summary: 'Evaluate technical approaches, AI/ML possibilities, feasibility, and business relevance.',
       detail: 'Benchmark available models, test feasibility of algorithms, and outline realistic business and product viability.',
-      accent: '#52D6FF',
+      accent: '#22D3EE',
     },
     {
       num: '03',
       title: 'Build & Integrate',
       summary: 'Develop the frontend, backend, data layer, and relevant intelligent features.',
       detail: 'Engineered synchronization across frontend components, database systems, API connections, and intelligent agent workflows.',
-      accent: '#8B5CF6',
+      accent: '#F97316',
     },
     {
       num: '04',
       title: 'Test & Present',
       summary: 'Validate the solution, demonstrate the workflow, explain limitations, and communicate the value.',
       detail: 'Perform live user flows, ensure edge cases are handled responsibly, and present transparent evidence to hackathon judges.',
-      accent: '#10B981',
+      accent: '#A3E635',
     },
   ];
 
@@ -51,7 +51,7 @@ export const WorkflowSection: React.FC = () => {
         {/* Timeline on Desktop (4-step horizontal) & Mobile (vertical) */}
         <div className="relative">
           {/* Desktop connecting line */}
-          <div className="hidden lg:block absolute top-12 left-10 right-10 h-0.5 bg-gradient-to-r from-[#356DFF] via-[#52D6FF] to-[#10B981] opacity-40 z-0" />
+          <div className="hidden lg:block absolute top-12 left-10 right-10 h-0.5 bg-gradient-to-r from-[#84CC16] via-[#22D3EE] to-[#F97316] opacity-40 z-0" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
             {steps.map((step, idx) => (
@@ -83,7 +83,7 @@ export const WorkflowSection: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#52D6FF] transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#22D3EE] transition-colors">
                     {step.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3 font-medium">
