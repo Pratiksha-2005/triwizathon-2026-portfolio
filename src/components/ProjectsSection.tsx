@@ -1,7 +1,6 @@
 import React from 'react';
 import { PROJECTS } from '../data/projects';
 import { ProjectCard } from './ProjectCard';
-import ElectricBorder from './ElectricBorder';
 
 export const ProjectsSection: React.FC = () => {
   return (
@@ -20,27 +19,10 @@ export const ProjectsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 4 Projects Grid */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {PROJECTS.map((project) => (
-            <ElectricBorder
-              key={project.id}
-              color={project.accentColor}
-              speed={0.8}
-              chaos={0.4}
-              spread={0.5}
-              strands={2}
-              thickness={1.4}
-              glow={0.8}
-              intensity={0.9}
-              arcs={1}
-              flicker={0.35}
-              borderRadius={16}
-              interactive
-              intro
-            >
-              <ProjectCard project={project} />
-            </ElectricBorder>
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </div>

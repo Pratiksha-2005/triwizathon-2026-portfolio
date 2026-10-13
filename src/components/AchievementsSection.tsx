@@ -1,13 +1,6 @@
 import React from 'react';
 import { ACHIEVEMENTS, ACHIEVEMENTS_SUMMARY } from '../data/achievements';
 import { AchievementCard } from './AchievementCard';
-import ElectricBorder from './ElectricBorder';
-
-const resultColor = (result: string) => {
-  if (result === 'Top 10') return { color: '#52D6FF', glow: '#356DFF' };
-  if (result === 'Top 30') return { color: '#A78BFA', glow: '#7C3AED' };
-  return { color: '#34D399', glow: '#059669' };
-};
 
 export const AchievementsSection: React.FC = () => {
   return (
@@ -40,30 +33,9 @@ export const AchievementsSection: React.FC = () => {
 
         {/* 4 Achievements Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {ACHIEVEMENTS.map((achievement) => {
-            const { color, glow } = resultColor(achievement.result);
-            return (
-              <ElectricBorder
-                key={achievement.id}
-                color={color}
-                glowColor={glow}
-                speed={0.8}
-                chaos={0.4}
-                spread={0.5}
-                strands={2}
-                thickness={1.3}
-                glow={0.8}
-                intensity={0.9}
-                arcs={1}
-                flicker={0.35}
-                borderRadius={16}
-                interactive
-                intro
-              >
-                <AchievementCard achievement={achievement} />
-              </ElectricBorder>
-            );
-          })}
+          {ACHIEVEMENTS.map((achievement) => (
+            <AchievementCard key={achievement.id} achievement={achievement} />
+          ))}
         </div>
       </div>
     </section>

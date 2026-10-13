@@ -1,5 +1,4 @@
 import React from 'react';
-import ElectricBorder from './ElectricBorder';
 
 export const About: React.FC = () => {
   const capabilities = [
@@ -81,23 +80,8 @@ export const About: React.FC = () => {
         {/* 4 Capabilities Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {capabilities.map((item, index) => (
-            <ElectricBorder
-              key={index}
-              color={item.accent}
-              speed={0.7}
-              chaos={0.35}
-              spread={0.45}
-              strands={2}
-              thickness={1.2}
-              glow={0.7}
-              intensity={0.85}
-              arcs={1}
-              flicker={0.4}
-              borderRadius={16}
-              interactive
-              intro
-            >
             <div
+              key={index}
               className="cursor-target p-6 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#356DFF]/60 shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
             >
               <div>
@@ -141,7 +125,6 @@ export const About: React.FC = () => {
                 </div>
               </div>
             </div>
-            </ElectricBorder>
           ))}
         </div>
       </div>

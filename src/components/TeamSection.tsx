@@ -1,7 +1,6 @@
 import React from 'react';
 import { TEAM_MEMBERS } from '../data/team';
 import { TeamCard } from './TeamCard';
-import ElectricBorder from './ElectricBorder';
 
 export const TeamSection: React.FC = () => {
   return (
@@ -27,24 +26,7 @@ export const TeamSection: React.FC = () => {
         {/* 4 Members Grid: 4-cols on desktop, 2-cols on tablet, 1-col on mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {TEAM_MEMBERS.map((member) => (
-            <ElectricBorder
-              key={member.id}
-              color={member.accentColor}
-              speed={0.75}
-              chaos={0.38}
-              spread={0.48}
-              strands={2}
-              thickness={1.3}
-              glow={0.75}
-              intensity={0.9}
-              arcs={1}
-              flicker={0.38}
-              borderRadius={16}
-              interactive
-              intro
-            >
-              <TeamCard member={member} />
-            </ElectricBorder>
+            <TeamCard key={member.id} member={member} />
           ))}
         </div>
       </div>

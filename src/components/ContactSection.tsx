@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ElectricBorder from './ElectricBorder';
 
 interface ContactSectionProps {
   onOpenPdfModal: () => void;
@@ -24,24 +23,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenPdfModal }
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative bg-[#071426] border-t border-[#12243A]">
       <div className="max-w-7xl mx-auto">
-        <ElectricBorder
-          color="#356DFF"
-          glowColor="#52D6FF"
-          speed={0.9}
-          chaos={0.45}
-          spread={0.55}
-          strands={3}
-          thickness={1.5}
-          glow={0.9}
-          intensity={1.0}
-          arcs={1}
-          flicker={0.35}
-          borderRadius={24}
-          interactive
-          intro
-          className="max-w-4xl mx-auto"
-        >
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-[#0D1B2A] to-[#071426] border border-[#1E3A5F] shadow-2xl relative overflow-hidden">
+        <div className="max-w-4xl mx-auto p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-[#0D1B2A] to-[#071426] border border-[#1E3A5F] shadow-2xl relative overflow-hidden">
           {/* Ambient Glow */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-[#356DFF]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -107,7 +89,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenPdfModal }
             </div>
           </div>
         </div>
-        </ElectricBorder>
       </div>
     </section>
   );
