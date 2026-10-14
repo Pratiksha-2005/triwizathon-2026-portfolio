@@ -48,7 +48,7 @@ const ChevronIcon = ({ open }: { open: boolean }) => (
 export const TeamCard: React.FC<TeamCardProps> = ({ member, expanded, onToggle }) => {
 
   return (
-    <div className="h-full flex flex-col justify-between p-6 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#356DFF]/60 shadow-xl transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden">
+    <div className="w-full flex flex-col justify-between p-6 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#356DFF]/60 shadow-xl transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden">
       {/* Decorative top accent glow */}
       <div
         className="absolute top-0 left-0 right-0 h-1 transition-all group-hover:h-1.5"
@@ -70,7 +70,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member, expanded, onToggle }
                   const fallback = target.nextElementSibling as HTMLElement | null;
                   if (fallback) fallback.style.display = 'flex';
                 }}
-                className="rounded-2xl object-cover shadow-lg border"
+                className="rounded-2xl object-cover object-top shadow-lg border"
                 style={{
                   width: '150px',
                   height: '150px', borderColor: `${member.accentColor}60`,

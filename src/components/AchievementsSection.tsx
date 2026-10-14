@@ -1,7 +1,7 @@
 import React from 'react';
 import { ACHIEVEMENTS, ACHIEVEMENTS_SUMMARY } from '../data/achievements';
 import { AchievementCard } from './AchievementCard';
-import ElectricBorder from './ElectricBorder';
+import { ElectricBorder } from './ElectricBorder';
 
 export const AchievementsSection: React.FC = () => {
   return (
@@ -34,26 +34,31 @@ export const AchievementsSection: React.FC = () => {
 
         {/* 4 Achievements Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {ACHIEVEMENTS.map((achievement) => (
-            <ElectricBorder
-              key={achievement.id}
-              color="#84CC16"
-              glowColor="#22D3EE"
-              intensity={1}
-              speed={0.6}
-              glow={0.3}
-              thickness={1.5}
-              strands={2}
-              chaos={0.3}
-              spread={0.4}
-              flicker={0.25}
-              borderRadius={16}
-              interactive={true}
-              className="h-full"
-            >
-              <AchievementCard achievement={achievement} />
-            </ElectricBorder>
-          ))}
+          {ACHIEVEMENTS.map((achievement) => {
+            const borderClr =
+              achievement.result === 'Top 10'
+                ? '#84CC16'
+                : achievement.result === 'Top 30'
+                ? '#FB923C'
+                : '#22D3EE';
+
+            return (
+              <ElectricBorder
+                key={achievement.id}
+                color={borderClr}
+                glowColor="#22D3EE"
+                borderRadius={16}
+                thickness={1.5}
+                speed={0.6}
+                chaos={0.35}
+                spread={0.4}
+                glow={0.5}
+                className="h-full"
+              >
+                <AchievementCard achievement={achievement} />
+              </ElectricBorder>
+            );
+          })}
         </div>
       </div>
     </section>

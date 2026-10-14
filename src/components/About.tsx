@@ -1,5 +1,5 @@
 import React from 'react';
-import ElectricBorder from './ElectricBorder';
+import { ElectricBorder } from './ElectricBorder';
 
 export const About: React.FC = () => {
   const capabilities = [
@@ -83,18 +83,14 @@ export const About: React.FC = () => {
           {capabilities.map((item, index) => (
             <ElectricBorder
               key={index}
-              color="#84CC16"
+              color={item.accent}
               glowColor="#22D3EE"
-              intensity={0.2}
-              speed={0.4}
-              glow={0.15}
-              thickness={1}
-              strands={2}
-              chaos={0.3}
-              spread={0.4}
-              flicker={0.15}
               borderRadius={16}
-              interactive={true}
+              thickness={1.5}
+              speed={0.6}
+              chaos={0.4}
+              spread={0.4}
+              glow={0.5}
               className="h-full"
             >
               <div

@@ -10,7 +10,7 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, expanded, onToggle }) => {
 
   return (
-    <div className="h-full flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#356DFF]/60 shadow-xl transition-all duration-300 group hover:-translate-y-1 relative">
+    <div className="w-full flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-[#0D1B2A] border border-[#1A2E4C] hover:border-[#356DFF]/60 shadow-xl transition-all duration-300 group hover:-translate-y-1 relative">
       <div>
         {/* Top Header: Category Tag & Hackathon Achievement Pill */}
         <div className="flex flex-wrap items-center justify-between gap-2 mb-4">

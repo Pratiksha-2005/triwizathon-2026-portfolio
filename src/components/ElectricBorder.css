@@ -1,11 +1,16 @@
 .electric-border {
   position: relative;
-  isolation: isolate;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 .electric-border__canvas {
   position: absolute;
-  z-index: 1;
-  display: block;
+  top: -16px;
+  left: -16px;
   pointer-events: none;
+  z-index: 10;
+  display: block;
+  background: transparent !important;
 }
