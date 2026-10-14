@@ -1,3 +1,8 @@
+import pravinPhoto from '../assets/team/pravin.jpg';
+import samarthPhoto from '../assets/team/samarth.jpg';
+import pratikshaPhoto from '../assets/team/pratiksha.jpg';
+import shreyasPhoto from '../assets/team/shreyas.jpg';
+
 export interface TeamMember {
   id: string;
   name: string;
@@ -51,7 +56,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/pravin-aadake-2a61ab345",
     github: "https://github.com/pravina045",
     phone: "8329147815",
-    photo: "/src/assets/team/pravin.jpg"
+    photo: pravinPhoto
   },
   {
     id: "samarth-kumbhar",
@@ -85,7 +90,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/samarth-kumbhar-a54a23327",
     github: "https://github.com/Samarthkumbhar99",
     phone: "8625086644",
-    photo: "/src/assets/team/samarth.jpg"
+    photo: samarthPhoto
   },
   {
     id: "pratiksha-bhaskare",
@@ -119,7 +124,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/pratiksha-bhaskare-1a8644333",
     github: "https://github.com/Pratiksha-2005",
     phone: "8999618090",
-    photo: "/src/assets/team/pratiksha.jpg"
+    photo: pratikshaPhoto
   },
   {
     id: "shreyas-suryawanshi",
@@ -151,6 +156,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/shreyash-suryawanshi-2885a030a",
     github: "https://github.com/shreyash220706",
     phone: "9011388302",
-    photo: "/src/assets/team/shreyas.jpg"
+    photo: shreyasPhoto
   }
 ];
